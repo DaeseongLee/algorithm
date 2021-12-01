@@ -1,7 +1,7 @@
 const fs = require('fs');
 const input = fs.readFileSync('../dev/stdin').toString().split('\n');
 
-let str  = input[0].trim().split('');
+// let str  = input[0].trim().split('');
 // let cursor = str.length;
 
 // for(let i = 2; i<input.length; i++) {
@@ -50,7 +50,7 @@ for(let i = 2; i<input.length; i++) {
             }
             break;
         case 'B':
-            if(stack1.length) {
+            if(stack1.length > 0) {
                 stack1.pop();
             }
             break;
