@@ -9,7 +9,6 @@ while(input.length > 0) {
         temp.push(input.pop());
     }
 }
-
 temp.sort();
 
 let result = '';
