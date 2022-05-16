@@ -3,20 +3,22 @@ const input = fs.readFileSync('../dev/stdin').toString().split(' ').map(a => +a)
 
 const [num1, num2] = input;
 
-function getGCF(a, b) {
-    while(b > 0) {
-        a = a % b;
-        [a, b] = [b, a];
+//최대공약수
+function getMaxNum(num1, num2) {
+    let a = num1;
+    let b = num2;
+    while (b !== 0) {
+        [a, b] = [b, a % b]
     }
     return a;
 }
 
-function getLCM(a, b) {
-    return (a * b) / getGCF(a, b);
+//최소공배수
+function getMinNum(num1, num2, maxNum) {
+    return (num1 * num2) / maxNum;
 }
 
-const gcf = getGCF(num1, num2);
-const lcm = getLCM(num1, num2);
-
-console.log(gcf);
-console.log(lcm);
+const maxNum = getMaxNum(num1, num2);
+const minNum = getMinNum(num1, num2, maxNum);
+console.log(maxNum);
+console.log(minNum);
