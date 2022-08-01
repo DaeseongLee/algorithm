@@ -1,30 +1,24 @@
-//팩토리얼을 구하자
-const fs = require('fs');
-const input = fs.readFileSync('../dev/stdin').toString().split(' ').map(n => +n);
-
-const [num1, num2] = input;
-const five = getFiveCount(num1) - (getFiveCount(num2) + getFiveCount(num1 - num2))
-const second = getSecondCount(num1) - (getSecondCount(num2) + getSecondCount(num1-num2))
-
-
-console.log(Math.min(five,second))
-
-function getFiveCount(number) {
-    let count = 0;
-    for (let i = 5; i <= number; i= i * 5) {
-        count += Math.floor(number / i)
+const n = 5;
+const k = 3;
+const input = [1, 2, 3, 4, 5];
+const array = [];
+const result = [];
+const getCombination = function (start, array) {
+    if (array.length === k) {
+        result.push([...array])
+        return;
     }
-    return count 
+
+    for (let i = start; i < n; i++){
+        array.push(input[i])
+        getCombination(i + 1, array);
+        array.pop();
+    }
+    return;
 }
 
-function getSecondCount(number) {
-    let count = 0;
-    for (let i = 2; i <= number; i= i * 2) {
-        count += Math.floor(number / i)
-    }
-    return count 
+const main = function () {
+    getCombination(0, array);
 }
-
-
-
-
+main()
+console.log(result)
